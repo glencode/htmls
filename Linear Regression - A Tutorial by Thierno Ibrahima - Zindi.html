@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://zindi.africa/learning/linear-regression-a-tutorial-by-thierno-ibrahima -->
+<html lang="en" class="wf-nunito-n3-active wf-nunito-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- nextgen -->
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://assets.zindi.africa/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://assets.zindi.africa/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://assets.zindi.africa/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://assets.zindi.africa/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://assets.zindi.africa/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://assets.zindi.africa/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="https://assets.zindi.africa/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://assets.zindi.africa/favicon-16x16.png" sizes="16x16">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ZindiAfrica">
+    <meta name="application-name" content=" ">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="https://assets.zindi.africa/mstile-144x144.png">
+    <script async="" src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/tag.js"></script><script async="" src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/gtm.js"></script><script src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/webfont.js" async=""></script><script type="text/javascript">
+      var WebFontConfig = {
+        google: {
+          families: ["Nunito:300,400"],
+        },
+        timeout: 2000,
+      }
+
+      ;(function (d) {
+        var h = d.documentElement
+        var onerror = function () {
+          h.className += "wf-inactive"
+        }
+        var st = setTimeout(onerror, 1000)
+        h.className += "wf-loading"
+        var wf = d.createElement("script"),
+          s = d.scripts[0]
+        wf.src = "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+        wf.async = true
+        wf.onerror = onerror
+        wf.onload = function () {
+          clearTimeout(st)
+        }
+        s.parentNode.insertBefore(wf, s)
+      })(document)
+    </script>
+    <title>Linear Regression - A Tutorial by Thierno Ibrahima - Zindi</title><meta data-react-helmet="true" name="description" content="Zindi is a data science competition platform with the mission of building the data science ecosystem in Africa. Zindi hosts a community of data scientists dedicated to solving the continent&#39;s most pressing problems through machine learning and artificial intelligence."><meta data-react-helmet="true" property="og:site_name" content="Zindi"><meta data-react-helmet="true" property="twitter:site_name" content="Zindi"><meta data-react-helmet="true" property="og:title" content="Linear Regression - A Tutorial by Thierno Ibrahima"><meta data-react-helmet="true" property="og:description" content="&quot;A learning curve is essential to growth&quot;                                                                                                                            - Tammy Bjelland"><meta data-react-helmet="true" property="og:image" content="https://zindpublic.blob.core.windows.net/public/uploads/blog_post/image/20/big_thumb_3dbb452a-b435-4452-bf38-d3c56b6f6ac6.jpeg"><meta data-react-helmet="true" property="twitter:title" content="Linear Regression - A Tutorial by Thierno Ibrahima"><meta data-react-helmet="true" property="twitter:description" content="&quot;A learning curve is essential to growth&quot;                                                                                                                            - Tammy Bjelland"><meta data-react-helmet="true" property="twitter:image" content="https://zindpublic.blob.core.windows.net/public/uploads/blog_post/image/20/big_thumb_3dbb452a-b435-4452-bf38-d3c56b6f6ac6.jpeg">
+    
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : ""
+        j.async = true
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, "script", "dataLayer", "GTM-KRG85D8")
+    </script>
+    
+  <link rel="stylesheet" href="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/css" media="all"><link href="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/bundle.d57dc7d8a01460a702c7.css" rel="stylesheet"></head>
+  <body _c_t_common="1" data-new-gr-c-s-check-loaded="14.1020.0" data-gr-ext-installed="">
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <div id="app"><div class="App__container___fj0c9"><div class="App__section___1nGff"></div><div class="App__section___1nGff"><div class="App__contained___3emDO"><div class="Header__container___3FtbH"><a href="https://zindi.africa/"><div class="Header__logo___1eRaO">Zindi</div></a><div class="Header__menuContainer___2izgT"><div class="Menu__container___1sjgb"><a class="Menu__link___3x4C4" href="https://zindi.africa/competitions"><span class="Menu__linkInner___3LB5N">Compete</span></a><a aria-current="page" class="Menu__link___3x4C4 Menu__activeLink___1MA6r" href="https://zindi.africa/learning"><span class="Menu__linkInner___3LB5N">Learn</span></a><a class="Menu__link___3x4C4" href="https://zindi.africa/jobs"><span class="Menu__linkInner___3LB5N">Find a Job</span></a></div><div class="Menu__container___1sjgb Header__menuRight___3wiDe Menu__justifyRight___3r6Ws"><a class="Menu__link___3x4C4" href="https://zindi.africa/inbox"><span class="Menu__linkInner___3LB5N"><div class="Inbox__container___3xHCr"><svg class="Inbox__messagesIcon___2XP8V" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><div class="Inbox__unseen___31NED"></div></div></span></a></div></div><div class="Header__userMenu___2iOts"><div class="UserMenu__container___ypkko"><button class="Button__base___NhksY Button__blank-normal___1nB5F UserMenu__user___a0zJo"><span class="Button__inner___3jkeF"><span class="User__container___18HoF User__size-normal___26ZPA"><img class="User__avatar___6aNx2" src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/thumb.default.png" alt=""><span class="User__username___64PE2">Glencode</span></span></span></button><div class=""></div></div></div></div></div></div><div class="App__section___1nGff App__content___WFkDX"><div class="WithSubheader__container___3qd5U"><div class="WithSubheader__header___2o1oX WithSubheader__withHeader___35ECw"><div class="BlogPost__headerImage___2fAz4" style="background-image: url(&quot;https://zindpublic.blob.core.windows.net/public/uploads/blog_post/image/20/header_3dbb452a-b435-4452-bf38-d3c56b6f6ac6.jpeg&quot;);"></div></div><div><div class="App__contained___3emDO"><div class="Paper__paper___2M-1R Paper__padding-1___3sKLR BlogPost__paper___1D3Be"><div class="BlogPost__date___3BhZy">25 Jun 2019, 12:04</div><h2 class="BlogPost__title___RUU5Z">Linear Regression - A Tutorial by Thierno Ibrahima</h2><div class="Html__container___1AJFz BlogPost__intro___31fc-"><p>"<span style="font-weight: bold;" class="">A learning curve is essential to growth</span>"                                                                                                                            - Tammy Bjelland</p><p><span style="font-weight: bold;" class="">What is linear regression?</span></p><p>"Linear regression is a basic and commonly used type of predictive analysis. &nbsp;</p><p>The overall idea of regression is to examine two things: </p><ol class="public-DraftStyleDefault-ol">
+<li>Does a set of predictor variables do a good job in predicting an outcome (dependent) variable? </li>
+<li>Which variables in particular are significant predictors of the outcome variable, and in what way do they–indicated by the magnitude and sign of the beta estimates–impact the outcome variable? &nbsp;</li>
+</ol><p>These regression estimates are used to explain the relationship between one dependent variable and one or more independent variables. The simplest form of the regression equation with one dependent and one independent variable is defined by the formula y = c + b*x, where y = estimated dependent variable score, c = constant, b = regression coefficient, and x = score on the independent variable. " - <a href="https://www.statisticssolutions.com/what-is-linear-regression/" target="_blank" rel="noreferrer noopener">Statistics Solutions. (2013). What is Linear Regression</a></p><p>Thierno Ibrahima looks at linear regression and how to implement it from scratch using python. </p><p>See his tutorial on Linear Regression on his <a href="https://github.com/bayethiernodiop/galsenAI_linear_reg/blob/master/linear_regg_from_scartch.ipynb" target="_blank" rel="noreferrer noopener">Github</a>!</p><p></p><div class="image">
+<img src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/9591be48-fb8f-4499-813d-4d954cef9ffb.png"> </div><p></p><p></p><p><span style="font-weight: bold;" class="">Thierno Ibrahima</span></p><p></p><div class="image">
+<img src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/a60d964e-68f7-4b0e-a813-812657f3be84.jpg"> </div><p></p><p>Thierno is a data engineer from Dakar, Senegal. He is a co founder of <a href="https://www.meetup.com/galsenai/" target="_blank" rel="noreferrer noopener">galsenAI</a> a senegalease community in artificial intelligence with more than 700 members on meetups. </p><p>Learn how to use open data from africa at their next meetup in July 2019.</p></div></div></div></div></div></div><div class="App__section___1nGff"><div class="Footer__container___3vGXM"><div class="App__contained___3emDO"><div class="Footer__links___dDoS-"><div class="Footer__column___1yO21"><div><a href="https://zindi.africa/competitions">Competitions</a></div><div><a href="https://zindi.africa/hackathons">Hackathons</a></div><div><a href="https://zindi.africa/data_scientists">Data Scientists</a></div><div><a href="https://zindi.africa/discussions">Discussions</a></div><div><a href="https://zindi.africa/jobs">Jobs Board</a></div></div><div class="Footer__column___1yO21"><div><a href="https://zindi.africa/hosting_competition">Host competition</a></div><div><a href="https://zindi.africa/about">About Us</a></div><div><a href="https://zindi.africa/partners">Our Partners</a></div><div><a href="https://zindi.africa/contact_us">Contact Us</a></div></div><div class="Footer__column___1yO21"><div><a href="https://zindi.africa/rules">Rules and Guidelines</a></div><div><a href="https://zindi.africa/terms">Terms of Use</a></div><div><a href="https://zindi.africa/privacy">Privacy Policy</a></div><div><a href="https://zindi.africa/faq">FAQs</a></div></div><div class="Footer__column___1yO21"><div><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/zindi-africa">LinkedIn</a></div><div><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/ZindiAfrica-311192052980655">Facebook</a></div><div><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ZindiAfrica">Twitter</a></div><div><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/zindi.africa">Instagram</a></div><div><a target="_blank" rel="noopener noreferrer" href="https://zindi.medium.com/">Medium</a></div><div><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCQHq2JY2BqY2UTDCmVWyGBw">Youtube</a></div><div><a target="_blank" rel="noopener noreferrer" href="https://github.com/zindiafrica">Github</a></div></div></div><div class="Footer__logo___ZtNwP">Zindi</div></div></div></div></div></div><script>window.__INITIAL_STATE__ = {"blogPosts":{"data":{},"queries":{}},"comments":{"data":{},"queries":{}},"competitionTags":{"data":{},"queries":{}},"competitions":{"data":{},"queries":{}},"conspiracyParticipations":{"data":{},"queries":{}},"discussions":{"data":{},"queries":{}},"fullBlogPosts":{"data":{"linear-regression-a-tutorial-by-thierno-ibrahima":{"id":"linear-regression-a-tutorial-by-thierno-ibrahima","image":"https://zindpublic.blob.core.windows.net/public/uploads/blog_post/image/20/header_3dbb452a-b435-4452-bf38-d3c56b6f6ac6.jpeg","big_image":"https://zindpublic.blob.core.windows.net/public/uploads/blog_post/image/20/big_thumb_3dbb452a-b435-4452-bf38-d3c56b6f6ac6.jpeg","header_image":"https://zindpublic.blob.core.windows.net/public/uploads/blog_post/image/20/header_3dbb452a-b435-4452-bf38-d3c56b6f6ac6.jpeg","title":"Linear Regression - A Tutorial by Thierno Ibrahima","intro_html":"<p>\"<span style=\"font-weight: bold;\" class=\"\">A learning curve is essential to growth</span>\"                                                                                                                            - Tammy Bjelland</p>","intro_plain":"\"A learning curve is essential to growth\"                                                                                                                            - Tammy Bjelland","content_html":"<p><span style=\"font-weight: bold;\" class=\"\">What is linear regression?</span></p><p>\"Linear regression is a basic and commonly used type of predictive analysis. &nbsp;</p><p>The overall idea of regression is to examine two things: </p><ol class=\"public-DraftStyleDefault-ol\">\n<li>Does a set of predictor variables do a good job in predicting an outcome (dependent) variable? </li>\n<li>Which variables in particular are significant predictors of the outcome variable, and in what way do they&ndash;indicated by the magnitude and sign of the beta estimates&ndash;impact the outcome variable? &nbsp;</li>\n</ol><p>These regression estimates are used to explain the relationship between one dependent variable and one or more independent variables. The simplest form of the regression equation with one dependent and one independent variable is defined by the formula y = c + b*x, where y = estimated dependent variable score, c = constant, b = regression coefficient, and x = score on the independent variable. \" - <a href=\"https://www.statisticssolutions.com/what-is-linear-regression/\" target=\"_blank\" rel=\"noreferrer noopener\">Statistics Solutions. (2013). What is Linear Regression</a></p><p>Thierno Ibrahima looks at linear regression and how to implement it from scratch using python. </p><p>See his tutorial on Linear Regression on his <a href=\"https://github.com/bayethiernodiop/galsenAI_linear_reg/blob/master/linear_regg_from_scartch.ipynb\" target=\"_blank\" rel=\"noreferrer noopener\">Github</a>!</p><p><div class=\"image\">\n<img src=\"https://zindpublic.blob.core.windows.net/public/uploads/image_attachment/image/107/9591be48-fb8f-4499-813d-4d954cef9ffb.png\"> </div></p><p></p><p><span style=\"font-weight: bold;\" class=\"\">Thierno Ibrahima</span></p><p><div class=\"image\">\n<img src=\"https://zindpublic.blob.core.windows.net/public/uploads/image_attachment/image/66/a60d964e-68f7-4b0e-a813-812657f3be84.jpg\"> </div></p><p>Thierno is a data engineer from Dakar, Senegal. He is a co founder of <a href=\"https://www.meetup.com/galsenai/\" target=\"_blank\" rel=\"noreferrer noopener\">galsenAI</a> a senegalease community in artificial intelligence with more than 700 members on meetups. </p><p>Learn how to use open data from africa at their next meetup in July 2019.</p>","published_at":"2019-06-25T09:04:42.892Z"}},"queries":{"\"linear-regression-a-tutorial-by-thierno-ibrahima\"":{"data":"linear-regression-a-tutorial-by-thierno-ibrahima","loading":false,"error":null}}},"fullCompetitions":{},"fullDiscussions":{"data":{},"queries":{"default":{"loading":false,"error":null}}},"fullJobs":{"data":{},"queries":{}},"jobs":{"data":{},"queries":{}},"jobApplications":{"data":{},"queries":{}},"myTeams":{},"notificationSubscriptions":{"data":{},"queries":{}},"participations":{"data":{},"queries":{}},"submissions":{"data":{},"queries":{}},"submissionLimits":{"data":{},"queries":{}},"teams":{"data":{},"queries":{}},"userDiscussions":{"data":{},"queries":{}},"userParticipations":{"data":{},"queries":{}},"userProfiles":{"users":{}},"users":{"data":{},"queries":{}}}</script>
+    
+    <script>
+      window.ga =
+        window.ga ||
+        function () {
+          ;(ga.q = ga.q || []).push(arguments)
+        }
+      ga.l = +new Date()
+      ga("create", "UA-125419148-1", "auto")
+      ga("send", "pageview")
+      ga('set', 'appName', 'zindi.web')
+      ga('set', 'dimension1', 'nextgen');
+    </script>
+    <script async="" src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/analytics.js"></script>
+     
+    <noscript><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KRG85D8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    
+  <script>!function(l){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],i=0,a=[];i<n.length;i++)t=n[i],Object.prototype.hasOwnProperty.call(p,t)&&p[t]&&a.push(p[t][0]),p[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(l[r]=o[r]);for(s&&s(e);a.length;)a.shift()();return c.push.apply(c,u||[]),f()}function f(){for(var e,r=0;r<c.length;r++){for(var t=c[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==p[u]&&(n=!1)}n&&(c.splice(r--,1),e=i(i.s=t[0]))}return e}var t={},p={runtime:0},c=[];function i(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return l[e].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.m=l,i.c=t,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(r,e){if(1&e&&(r=i(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)i.d(t,n,function(e){return r[e]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="https://assets.zindi.africa/";var r=(n=window.webpackJsonp=window.webpackJsonp||[]).push.bind(n);n.push=e;for(var n=n.slice(),o=0;o<n.length;o++)e(n[o]);var s=r;f()}([]);
+//# sourceMappingURL=runtime.8d4eb9324d7c3d54849b.js.map</script><script type="text/javascript" src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/vendor.019171b12285f6597772.js" defer=""></script><script type="text/javascript" src="./Linear Regression - A Tutorial by Thierno Ibrahima - Zindi_files/bundle.9c8d652f1bf8225cb2ca.js" defer=""></script>
+
+<div class="ReactModalPortal"></div>
+<script type="text/javascript" id="">(function(a,e,f,g,b,c,d){a[b]=a[b]||function(){(a[b].a=a[b].a||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(67869277,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/67869277" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<div id="fatkun-drop-panel">
+        <a id="fatkun-drop-panel-close-btn">×</a>
+            <div id="fatkun-drop-panel-inner">
+                <div class="fatkun-content">
+                    <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5892"><path d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z" p-id="5893"></path></svg>
+                    <div class="fatkun-title">Drag and Drop</div>
+                    <div class="fatkun-desc">The image will be downloaded</div>
+                </div>
+            </div>
+    </div></body></html>
